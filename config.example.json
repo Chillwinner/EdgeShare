@@ -1,0 +1,9 @@
+{
+  "appId": "your-cloudflare-realtime-sfu-app-id",
+  "appSecret": "your-cloudflare-realtime-sfu-app-secret",
+  "accountId": "your-32-char-cloudflare-account-id",
+  "analyticsToken": "your-readonly-account-analytics-token",
+  "quotaWarnGb": 850,
+  "quotaLimitGb": 950,
+  "port": 8787
+}

@@ -1,0 +1,8 @@
+edgeshare
+edgeshare.exe
+config.json
+*.local.json
+.env*
+web/node_modules/
+web/dist/
+.DS_Store
