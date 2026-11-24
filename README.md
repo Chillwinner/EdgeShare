@@ -9,7 +9,7 @@
 
 ---
 
-## ⚡ Why EdgeShare? — Zero Server Bills, Full Control
+## ⚡ Why EdgeShare? — Zero Server Bills, Out-of-the-Box
 
 > [!IMPORTANT]
 > **Keep Your Keys Local & Use Cloudflare's 1,000 GB/mo Free Egress!**  
@@ -74,17 +74,27 @@ flowchart LR
 
 ---
 
-## 🚀 Quick Start
+## 📖 Step-by-Step Setup Guide (For First-Time Users)
 
-### 1. Prerequisites
-- **Go 1.22+** and **Node.js 20+**
-- A free [Cloudflare Account](https://dash.cloudflare.com/)
+Even if you have never used Cloudflare Realtime before, you can get a meeting running in **under 3 minutes**:
 
-### 2. Get Your Cloudflare Credentials
-1. **SFU App (Required)**: Open **Cloudflare Dashboard → Realtime → SFU → Create Application**, then copy **`App ID`** and **`App Secret`**.
-2. **Quota Monitor (Optional)**: Copy your **`Account ID`**, then go to **My Profile → API Tokens → Create Custom Token** with permission `Account → Account Analytics → Read`.
+### Step 1: Create Your Free Cloudflare Realtime SFU App (~1 min)
+1. Log in to [Cloudflare Dashboard](https://dash.cloudflare.com/).
+2. In the left sidebar, click **Realtime** → **SFU** (or **Applications**).
+   > *Note: On first use, Cloudflare may ask you to add a payment method to activate Realtime. The first **1,000 GB/month** of egress is completely free (\$0).*
+3. Click **Create Application**, give it any name (e.g. `edgeshare`), and submit.
+4. Copy the **`App ID`** and **`App Secret`** shown on screen (**keep `App Secret` safe — it is only shown once**).
 
-### 3. Build & Run
+### Step 2: (Optional) Enable the 1,000 GB Monthly Quota Gauge
+If you skip this step, meetings still work normally — you just won't see the monthly GB progress bar at the top.
+1. Copy your 32-character **Account ID** directly from your Cloudflare Dashboard browser URL:  
+   `https://dash.cloudflare.com/<YOUR_ACCOUNT_ID>/...`
+2. Click your profile icon (top-right) → **My Profile** → **API Tokens** → **Create Token** → **Create Custom Token**:
+   - **Token name**: `edgeshare-analytics`
+   - **Permissions**: `Account` → `Account Analytics` → `Read`
+   - Leave everything else as default, click **Continue to summary** → **Create Token**, and copy the token.
+
+### Step 3: Build & Launch EdgeShare
 ```bash
 git clone https://github.com/Chillwinner/EdgeShare.git
 cd EdgeShare
@@ -95,12 +105,31 @@ cd web && npm install && npm run build && cd ..
 # 2. Build single Go binary
 go build -o edgeshare .
 
-# 3. Launch (auto-opens Host Console in your browser)
+# 3. Launch (auto-opens the Host Console in your default browser)
 ./edgeshare
 ```
 
-> [!TIP]
-> Inside the Host Console, click **Settings** to paste your `App ID` / `App Secret` and click **One-Click Install** to download `cloudflared` automatically. Your config is saved locally at `~/.edgeshare/config.json`.
+### Step 4: Configure Keys & Install Public Tunnel in the UI
+1. On the EdgeShare home page, click **"Setup required: Add Cloudflare SFU Keys"** (or **Settings** in the top-right).
+2. Paste your **`App ID`** and **`App Secret`** (plus optional **`Account ID`** and **`Analytics Token`**).
+3. At the bottom of the Settings modal, click **One-Click Install** next to *Public Quick Tunnel (`cloudflared`)* — EdgeShare will automatically download `cloudflared` into `~/.edgeshare/bin/`.
+4. Click **Save Config** (stored locally at `~/.edgeshare/config.json` with `0600` permissions).
+
+### Step 5: Start Your First Meeting
+1. On the right-hand card, enter your nickname, optionally set a **Room Password** or enable **Waiting Room**, and toggle **Enable Public Quick Tunnel** ON.
+2. Click **Create & Start Meeting**.
+3. Click **Copy Invite** in the top bar and send the `https://*.trycloudflare.com/?room=...` link to anyone — they join directly in their browser with zero installs!
+
+---
+
+## ❓ Troubleshooting & FAQ
+
+- **Why do remote guests need the Quick Tunnel (`trycloudflare.com`) instead of my IP?**  
+  Modern browsers **block microphone & screen sharing (`getDisplayMedia`) on plain `http://` pages** (except `localhost`). The built-in `cloudflared` Quick Tunnel gives you both **NAT traversal** and a valid **HTTPS certificate** automatically.
+- **My shared screen is black on macOS?**  
+  Open **System Settings → Privacy & Security → Screen & System Audio Recording** and enable permission for your browser (Chrome / Edge / Safari / Arc).
+- **Will I accidentally get charged by Cloudflare?**  
+  EdgeShare enforces a local **Circuit Breaker** (`quotaLimitGb`, default `950 GB`). Once your monthly egress reaches `850 GB`, 10 Mbps Ultra mode is disabled; at `950 GB`, new SFU sessions are blocked before reaching the 1,000 GB free limit.
 
 ---
 
