@@ -94,7 +94,7 @@ export function SetupModal({ open, config, tunnel, hostToken, onClose, onSaved }
           >
             <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.08]">
               <div className="flex items-center gap-2.5">
-                <div className="p-2 rounded-xl bg-orange-500/15 text-orange-400">
+                <div className="p-2 rounded-xl bg-indigo-500/15 text-indigo-400">
                   <KeyRound className="w-4 h-4" />
                 </div>
                 <div>
@@ -122,7 +122,7 @@ export function SetupModal({ open, config, tunnel, hostToken, onClose, onSaved }
                     value={appId}
                     onChange={(e) => setAppId(e.target.value)}
                     placeholder="在 Cloudflare Dashboard -> Realtime -> SFU 创建"
-                    className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-sm text-zinc-100 focus:outline-none focus:border-orange-500/60"
+                    className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-sm text-zinc-100 focus:outline-none focus:border-indigo-500/60"
                     required={!config.configured}
                   />
                 </div>
@@ -135,7 +135,7 @@ export function SetupModal({ open, config, tunnel, hostToken, onClose, onSaved }
                     value={appSecret}
                     onChange={(e) => setAppSecret(e.target.value)}
                     placeholder={config.configured ? t('appSecretKeep') : 'App Secret'}
-                    className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-sm text-zinc-100 focus:outline-none focus:border-orange-500/60"
+                    className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-sm text-zinc-100 focus:outline-none focus:border-indigo-500/60"
                     required={!config.configured}
                   />
                 </div>
@@ -148,17 +148,17 @@ export function SetupModal({ open, config, tunnel, hostToken, onClose, onSaved }
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[11px] text-zinc-400 mb-1">Cloudflare Account ID</label>
+                    <label className="block text-[0.6875rem] text-zinc-400 mb-1">Cloudflare Account ID</label>
                     <input
                       type="text"
                       value={accountId}
                       onChange={(e) => setAccountId(e.target.value)}
                       placeholder="32位 Account ID"
-                      className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-orange-500/60"
+                      className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-indigo-500/60"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] text-zinc-400 mb-1">
+                    <label className="block text-[0.6875rem] text-zinc-400 mb-1">
                       Analytics 只读 Token {config.analyticsMasked ? `(${config.analyticsMasked})` : ''}
                     </label>
                     <input
@@ -166,27 +166,27 @@ export function SetupModal({ open, config, tunnel, hostToken, onClose, onSaved }
                       value={analyticsToken}
                       onChange={(e) => setAnalyticsToken(e.target.value)}
                       placeholder="Account Analytics: Read"
-                      className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-orange-500/60"
+                      className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-indigo-500/60"
                     />
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[11px] text-zinc-400 mb-1">黄灯警告阈值 (GB)</label>
+                    <label className="block text-[0.6875rem] text-zinc-400 mb-1">黄灯警告阈值 (GB)</label>
                     <input
                       type="number"
                       value={quotaWarnGb}
                       onChange={(e) => setQuotaWarnGb(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-orange-500/60"
+                      className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-indigo-500/60"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] text-zinc-400 mb-1">自动熔断上限 (GB)</label>
+                    <label className="block text-[0.6875rem] text-zinc-400 mb-1">自动熔断上限 (GB)</label>
                     <input
                       type="number"
                       value={quotaLimitGb}
                       onChange={(e) => setQuotaLimitGb(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-orange-500/60"
+                      className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-indigo-500/60"
                     />
                   </div>
                 </div>
@@ -197,7 +197,7 @@ export function SetupModal({ open, config, tunnel, hostToken, onClose, onSaved }
                   <Globe className="w-4 h-4 text-cyan-400" />
                   <div>
                     <div className="text-xs font-medium text-zinc-200">{t('tunnelTitle')} (cloudflared)</div>
-                    <div className="text-[11px] text-zinc-400">
+                    <div className="text-[0.6875rem] text-zinc-400">
                       {tunnel.hasBinary ? t('tunnelInstalled') : t('tunnelNotInstalled')}
                     </div>
                   </div>
@@ -227,7 +227,7 @@ export function SetupModal({ open, config, tunnel, hostToken, onClose, onSaved }
                   whileTap={{ scale: 0.97 }}
                   type="submit"
                   disabled={saving}
-                  className="px-5 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-xs font-semibold text-white shadow-lg shadow-orange-500/20 cursor-pointer disabled:opacity-50"
+                  className="px-5 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 text-xs font-semibold text-white shadow-lg shadow-indigo-500/20 cursor-pointer disabled:opacity-50"
                 >
                   {saving ? t('saving') : t('saveConfig')}
                 </motion.button>

@@ -369,14 +369,14 @@ export default function App() {
 
   if (!status) {
     return (
-      <div className="min-h-screen bg-[#09090b] flex items-center justify-center text-xs text-zinc-500">
+      <div className="min-h-screen  flex items-center justify-center text-xs text-zinc-500">
         正在连接 EdgeShare...
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#09090b] text-zinc-100">
+    <div className="min-h-screen  text-zinc-100">
       {/* Hidden remote audio elements */}
       {rtc.remoteAudioStreams.map((stream) => (
         <RemoteAudioPlayer key={stream.id} stream={stream} sinkId={speakerId} />
@@ -392,7 +392,7 @@ export default function App() {
             className="min-h-screen flex items-center justify-center p-4"
           >
             <div className="p-6 rounded-3xl border border-white/10 bg-zinc-900/80 text-center space-y-3 max-w-sm">
-              <div className="w-10 h-10 mx-auto rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
+              <div className="w-10 h-10 mx-auto rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
               <h2 className="text-sm font-semibold text-zinc-100">{t('waitingApprovalTitle')}</h2>
               <p className="text-xs text-zinc-400">{t('waitingApprovalDesc')}</p>
             </div>
@@ -412,7 +412,7 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="h-screen flex flex-col overflow-hidden bg-[#09090b]"
+            className="h-screen flex flex-col overflow-hidden "
           >
             <TopQuotaBar
               room={room}

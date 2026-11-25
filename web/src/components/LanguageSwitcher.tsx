@@ -15,7 +15,7 @@ export function LanguageSwitcher() {
         onClick={() => setOpen((o) => !o)}
         className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] text-xs text-zinc-200 transition-colors cursor-pointer"
       >
-        <Languages className="w-3.5 h-3.5 text-orange-400" />
+        <Languages className="w-3.5 h-3.5 text-indigo-400" />
         <span>{LANG_LABELS[lang]}</span>
       </motion.button>
 
@@ -37,7 +37,7 @@ export function LanguageSwitcher() {
                   setOpen(false);
                 }}
                 className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs transition-colors cursor-pointer ${
-                  lang === code ? 'bg-orange-500/20 text-orange-300 font-medium' : 'text-zinc-300 hover:bg-white/5'
+                  lang === code ? 'bg-indigo-500/20 text-indigo-300 font-medium' : 'text-zinc-300 hover:bg-white/5'
                 }`}
               >
                 {LANG_LABELS[code]}

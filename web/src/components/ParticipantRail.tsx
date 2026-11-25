@@ -17,7 +17,7 @@ export function ParticipantRail({ participants, selfId, isHost, onKick }: Partic
           <Users className="w-3.5 h-3.5 text-zinc-400" />
           <span>参会成员</span>
         </div>
-        <span className="px-2 py-0.5 rounded-full bg-white/[0.06] text-[11px] font-mono text-zinc-300">
+        <span className="px-2 py-0.5 rounded-full bg-white/[0.06] text-[0.6875rem] font-mono text-zinc-300">
           {participants.length}
         </span>
       </div>
@@ -46,7 +46,7 @@ export function ParticipantRail({ participants, selfId, isHost, onKick }: Partic
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
                         p.isHost
-                          ? 'bg-gradient-to-br from-orange-500 to-amber-500 text-white'
+                          ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white'
                           : 'bg-zinc-800 text-zinc-200 border border-white/10'
                       }`}
                     >
@@ -72,13 +72,13 @@ export function ParticipantRail({ participants, selfId, isHost, onKick }: Partic
                     </div>
                     <div className="flex items-center gap-1.5 mt-0.5">
                       {p.sharing && (
-                        <span className="inline-flex items-center gap-1 text-[10px] text-orange-400 font-medium">
+                        <span className="inline-flex items-center gap-1 text-[0.625rem] text-indigo-400 font-medium">
                           <MonitorUp className="w-2.5 h-2.5" />
                           共享中
                         </span>
                       )}
                       {!p.sharing && (
-                        <span className="text-[10px] text-zinc-500">
+                        <span className="text-[0.625rem] text-zinc-500">
                           {p.muted ? '已静音' : p.speaking ? '正在说话' : '在线'}
                         </span>
                       )}

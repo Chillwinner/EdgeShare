@@ -104,7 +104,7 @@ export function DeviceModal({
               </label>
               <select
                 onChange={(e) => onSelectMic(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-orange-500/60"
+                className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-indigo-500/60"
               >
                 {mics.map((m, idx) => (
                   <option key={m.deviceId || idx} value={m.deviceId}>
@@ -114,7 +114,7 @@ export function DeviceModal({
               </select>
               <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-75"
+                  className="h-full bg-gradient-to-r from-emerald-400 to-indigo-600 transition-all duration-75"
                   style={{ width: `${micLevel}%` }}
                 />
               </div>
@@ -122,12 +122,12 @@ export function DeviceModal({
 
             <div className="space-y-2">
               <label className="flex items-center gap-1.5 text-xs font-medium text-zinc-300">
-                <Video className="w-3.5 h-3.5 text-orange-400" />
+                <Video className="w-3.5 h-3.5 text-indigo-400" />
                 <span>{t('camera')}</span>
               </label>
               <select
                 onChange={(e) => onSelectCam(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-orange-500/60"
+                className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-indigo-500/60"
               >
                 {cams.map((c, idx) => (
                   <option key={c.deviceId || idx} value={c.deviceId}>
@@ -144,7 +144,7 @@ export function DeviceModal({
               </label>
               <select
                 onChange={(e) => onSelectSpeaker(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-orange-500/60"
+                className="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-white/10 text-xs text-zinc-100 focus:outline-none focus:border-indigo-500/60"
               >
                 {speakers.length === 0 ? (
                   <option value="">{t('defaultOutput')}</option>
@@ -158,7 +158,7 @@ export function DeviceModal({
               </select>
             </div>
 
-            <div className="text-[11px] text-zinc-400 pt-1 space-y-1">
+            <div className="text-[0.6875rem] text-zinc-400 pt-1 space-y-1">
               <div>{t('pttTip')}</div>
               <div>{t('shortcutMuteTip')}</div>
             </div>

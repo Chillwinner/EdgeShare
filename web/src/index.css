@@ -23,15 +23,41 @@
   }
 }
 
+/* ===== Restrained modern tech theme ===== */
+:root{--bg:#07080b;--a1:#6366f1;--line:rgba(255,255,255,.08);--ease:cubic-bezier(.22,1,.36,1)}
+html.light{--bg:#f6f7f9;--a1:#4f46e5;--line:rgba(15,23,42,.09)}
+html{font-size:17.5px;background:var(--bg)}
+body{background:transparent;color:#e7e8ec;letter-spacing:-.006em;-webkit-font-smoothing:antialiased}
+html.light body{color:#0b0d12}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+ background:radial-gradient(60vw 42vw at 50% -8%,color-mix(in srgb,var(--a1) 22%,transparent),transparent 70%),
+  radial-gradient(40vw 30vw at 100% 100%,color-mix(in srgb,var(--a1) 9%,transparent),transparent 70%);
+ animation:breathe 14s ease-in-out infinite alternate}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+ background-image:radial-gradient(var(--line) 1px,transparent 1.2px);background-size:28px 28px;
+ mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 70%)}
+@keyframes breathe{from{opacity:.7;transform:translateY(0)}to{opacity:1;transform:translateY(2%)}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+[class*="bg-zinc-900"],[class*="bg-zinc-950"]{backdrop-filter:blur(24px) saturate(140%);-webkit-backdrop-filter:blur(24px) saturate(140%);
+ box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 24px 60px -30px rgba(0,0,0,.6)}
+html.light [class*="bg-zinc-900"],html.light [class*="bg-zinc-950"]{box-shadow:0 1px 0 #fff inset,0 20px 50px -28px rgba(15,23,42,.18)}
+[class*="rounded-xl"],[class*="rounded-2xl"],[class*="rounded-3xl"]{transition:transform .5s var(--ease),border-color .3s,background-color .3s,box-shadow .4s}
+button,a{transition:transform .35s var(--ease),background-color .25s,border-color .25s,box-shadow .35s,color .2s,opacity .2s}
+button:not(:disabled):hover{transform:translateY(-1px)}
+button:not(:disabled):active{transform:scale(.97)}
+button[class*="bg-gradient"]{background-image:none!important;background-color:var(--a1);box-shadow:0 10px 30px -10px color-mix(in srgb,var(--a1) 70%,transparent),inset 0 1px 0 rgba(255,255,255,.2)}
+button[class*="bg-gradient"]:hover{filter:brightness(1.1);box-shadow:0 14px 36px -10px color-mix(in srgb,var(--a1) 80%,transparent),inset 0 1px 0 rgba(255,255,255,.25)}
+input,textarea,select{transition:border-color .25s,box-shadow .25s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--a1)!important;box-shadow:0 0 0 4px color-mix(in srgb,var(--a1) 22%,transparent)}
+main>*{animation:rise .8s var(--ease) both}main>*:nth-child(2){animation-delay:.1s}
+@media (prefers-reduced-motion:reduce){*,::before,::after{animation:none!important;transition:none!important}}
+
+
 /* Crisp Light Mode theme overrides */
 html.light body {
-  background-color: #f8fafc;
-  color: #0f172a;
+  color: #0b1020;
 }
 
-html.light .bg-\[\#09090b\] {
-  background-color: #f8fafc !important;
-}
 
 html.light .bg-zinc-900\/75,
 html.light .bg-zinc-900\/80,

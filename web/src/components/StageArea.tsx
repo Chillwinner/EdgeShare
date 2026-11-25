@@ -203,7 +203,7 @@ export function StageArea({
                   className="flex items-center justify-between gap-2 px-3 py-1.5 rounded-xl bg-zinc-900/80 border border-white/10 shrink-0"
                 >
                   <div className="flex items-center gap-1.5 overflow-x-auto">
-                    <span className="text-[11px] text-zinc-400 mr-1 shrink-0">
+                    <span className="text-[0.6875rem] text-zinc-400 mr-1 shrink-0">
                       正在共享 ({activeShares.length}):
                     </span>
                     {activeShares.map((s) => {
@@ -223,7 +223,7 @@ export function StageArea({
                             <motion.span
                               layoutId="active-share-pill"
                               transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                              className="absolute inset-0 rounded-lg bg-orange-500/25 border border-orange-500/40"
+                              className="absolute inset-0 rounded-lg bg-indigo-500/25 border border-indigo-500/40"
                             />
                           )}
                           <span className="relative z-10">{s.sharerName} 的屏幕</span>
@@ -290,7 +290,7 @@ export function StageArea({
                       <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/10 flex items-center gap-2 text-xs text-zinc-200">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                         <span>{isSelfShare ? '你正在共享' : `${share.sharerName} 的屏幕`}</span>
-                        <span className="px-1.5 py-0.5 rounded bg-white/10 text-[10px] text-zinc-300">
+                        <span className="px-1.5 py-0.5 rounded bg-white/10 text-[0.625rem] text-zinc-300">
                           {QUALITY_LABELS[share.quality]?.label || share.quality}
                         </span>
                       </div>
@@ -311,10 +311,10 @@ export function StageArea({
             {/* Bottom Camera Filmstrip (collapsible) */}
             <div className="shrink-0 flex flex-col gap-1.5">
               <div className="flex items-center justify-between px-1">
-                <span className="text-[11px] text-zinc-500">参会成员 ({sortedParticipants.length})</span>
+                <span className="text-[0.6875rem] text-zinc-500">参会成员 ({sortedParticipants.length})</span>
                 <button
                   onClick={() => setStripCollapsed((c) => !c)}
-                  className="flex items-center gap-1 text-[11px] text-zinc-400 hover:text-zinc-200 transition-colors cursor-pointer"
+                  className="flex items-center gap-1 text-[0.6875rem] text-zinc-400 hover:text-zinc-200 transition-colors cursor-pointer"
                 >
                   {stripCollapsed ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                   <span>{stripCollapsed ? '展开摄像头栏' : '收起摄像头栏'}</span>
@@ -361,7 +361,7 @@ export function StageArea({
                             <div
                               className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
                                 p.isHost
-                                  ? 'bg-gradient-to-br from-orange-500 to-amber-500 text-white'
+                                  ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white'
                                   : 'bg-zinc-800 text-zinc-200 border border-white/10'
                               }`}
                             >
@@ -380,7 +380,7 @@ export function StageArea({
                       )}
 
                       {/* Bottom name & status overlay */}
-                      <div className="absolute bottom-1.5 left-1.5 right-1.5 flex items-center justify-between gap-1 px-2 py-1 rounded-lg bg-black/60 backdrop-blur-md text-[11px]">
+                      <div className="absolute bottom-1.5 left-1.5 right-1.5 flex items-center justify-between gap-1 px-2 py-1 rounded-lg bg-black/60 backdrop-blur-md text-[0.6875rem]">
                         <span className="truncate text-zinc-100 flex items-center gap-1">
                           {p.isHost && <Crown className="w-3 h-3 text-amber-400 shrink-0" />}
                           {p.name}
@@ -447,7 +447,7 @@ export function StageArea({
                             <div
                               className={`w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold shadow-lg ${
                                 p.isHost
-                                  ? 'bg-gradient-to-br from-orange-500 to-amber-500 text-white'
+                                  ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white'
                                   : 'bg-zinc-800 text-zinc-200 border border-white/10'
                               }`}
                             >
@@ -547,7 +547,7 @@ export function StageArea({
                 <span>{t('stopShare')}</span>
               </motion.button>
             ) : (
-              <div className="flex items-center rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 shadow-lg shadow-orange-500/20">
+              <div className="flex items-center rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 shadow-lg shadow-indigo-500/20">
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   onClick={() => onStartShare(shareQuality)}
@@ -586,14 +586,14 @@ export function StageArea({
                           onStartShare(q);
                         }}
                         className={`w-full text-left px-3 py-2 rounded-xl transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
-                          shareQuality === q ? 'bg-orange-500/15 text-orange-300' : 'hover:bg-white/5 text-zinc-200'
+                          shareQuality === q ? 'bg-indigo-500/15 text-indigo-300' : 'hover:bg-white/5 text-zinc-200'
                         }`}
                       >
                         <div className="text-xs font-medium">
                           {QUALITY_LABELS[q].label}
                           {blockedByQuota && ' (额度预警禁用)'}
                         </div>
-                        <div className="text-[11px] text-zinc-400">{QUALITY_LABELS[q].desc}</div>
+                        <div className="text-[0.6875rem] text-zinc-400">{QUALITY_LABELS[q].desc}</div>
                       </button>
                     );
                   })}
@@ -611,7 +611,7 @@ export function StageArea({
               }
               className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium border transition-colors cursor-pointer ${
                 annotateMode !== 'off'
-                  ? 'bg-orange-500/20 border-orange-500/40 text-orange-300'
+                  ? 'bg-indigo-500/20 border-indigo-500/40 text-indigo-300'
                   : 'bg-white/[0.06] hover:bg-white/[0.12] border-white/[0.08] text-zinc-300'
               }`}
               title="切换标注：关闭 -> 激光笔 -> 画笔"
@@ -691,7 +691,7 @@ export function StageArea({
               <motion.span
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="px-1.5 py-0.5 rounded-full bg-orange-500 text-[10px] font-bold text-white leading-none"
+                className="px-1.5 py-0.5 rounded-full bg-indigo-500 text-[0.625rem] font-bold text-white leading-none"
               >
                 {unreadCount}
               </motion.span>

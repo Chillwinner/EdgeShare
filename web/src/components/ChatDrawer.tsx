@@ -129,7 +129,7 @@ export function ChatDrawer({
             className="fixed inset-y-0 right-0 z-40 sm:relative sm:inset-auto h-full border-l border-white/[0.08] bg-zinc-950/90 sm:bg-zinc-950/75 backdrop-blur-2xl flex flex-col overflow-hidden shrink-0"
           >
             {dragging && (
-              <div className="absolute inset-0 z-30 bg-orange-500/15 border-2 border-dashed border-orange-400 flex items-center justify-center text-xs font-semibold text-orange-200 pointer-events-none">
+              <div className="absolute inset-0 z-30 bg-indigo-500/15 border-2 border-dashed border-indigo-400 flex items-center justify-center text-xs font-semibold text-indigo-200 pointer-events-none">
                 {t('dropP2P')}
               </div>
             )}
@@ -172,7 +172,7 @@ export function ChatDrawer({
                     {messages.map((m) => {
                       if (m.kind === 'system') {
                         return (
-                          <div key={m.id} className="text-center text-[11px] text-zinc-500 py-0.5">
+                          <div key={m.id} className="text-center text-[0.6875rem] text-zinc-500 py-0.5">
                             {m.text}
                           </div>
                         );
@@ -186,15 +186,15 @@ export function ChatDrawer({
                           className={`flex flex-col ${isSelf ? 'items-end' : 'items-start'}`}
                         >
                           <div className="flex items-center gap-1.5 mb-1 px-1">
-                            <span className="text-[11px] font-medium text-zinc-400">{m.senderName}</span>
-                            <span className="text-[10px] text-zinc-600">
+                            <span className="text-[0.6875rem] font-medium text-zinc-400">{m.senderName}</span>
+                            <span className="text-[0.625rem] text-zinc-600">
                               {new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </span>
                           </div>
                           <div
                             className={`max-w-[85%] rounded-2xl px-3 py-2 text-xs leading-relaxed break-words ${
                               isSelf
-                                ? 'bg-gradient-to-br from-orange-500/25 to-amber-500/20 border border-orange-500/30 text-zinc-100'
+                                ? 'bg-gradient-to-br from-indigo-500/25 to-indigo-600/20 border border-indigo-500/30 text-zinc-100'
                                 : 'bg-white/[0.06] border border-white/[0.08] text-zinc-200'
                             }`}
                           >
@@ -222,7 +222,7 @@ export function ChatDrawer({
                       >
                         <div className="flex items-center justify-between gap-2 text-xs">
                           <span className="font-medium text-cyan-200 truncate">{tr.fileName}</span>
-                          <span className="text-[10px] text-cyan-300/80 shrink-0">
+                          <span className="text-[0.625rem] text-cyan-300/80 shrink-0">
                             {(tr.fileSize / 1024 / 1024).toFixed(2)} MB · P2P
                           </span>
                         </div>
@@ -232,7 +232,7 @@ export function ChatDrawer({
                             style={{ width: `${tr.progress}%` }}
                           />
                         </div>
-                        <div className="flex items-center justify-between text-[11px] text-zinc-400">
+                        <div className="flex items-center justify-between text-[0.6875rem] text-zinc-400">
                           <span>
                             {tr.direction === 'send' ? t('sendToAll') : `${t('fromSender')} ${tr.senderName}`} · {tr.progress}%
                           </span>
@@ -271,7 +271,7 @@ export function ChatDrawer({
                       </div>
                     )}
 
-                    <div className="flex items-end gap-1.5 bg-zinc-900/90 border border-white/10 rounded-2xl p-2 focus-within:border-orange-500/50 transition-colors">
+                    <div className="flex items-end gap-1.5 bg-zinc-900/90 border border-white/10 rounded-2xl p-2 focus-within:border-indigo-500/50 transition-colors">
                       <label
                         className="p-1.5 rounded-lg hover:bg-white/10 text-zinc-400 hover:text-zinc-200 cursor-pointer shrink-0"
                         title="发送图片"
@@ -298,7 +298,7 @@ export function ChatDrawer({
                       <motion.button
                         whileTap={{ scale: 0.9 }}
                         onClick={submit}
-                        className="p-1.5 rounded-xl bg-orange-500 hover:bg-orange-400 text-white cursor-pointer shrink-0"
+                        className="p-1.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white cursor-pointer shrink-0"
                       >
                         <Send className="w-3.5 h-3.5" />
                       </motion.button>
@@ -308,7 +308,7 @@ export function ChatDrawer({
               ) : (
                 /* Shared Markdown Notes Tab */
                 <div className="flex-1 flex flex-col p-3 gap-2.5 min-h-0">
-                  <div className="flex items-center justify-between text-[11px] text-zinc-400">
+                  <div className="flex items-center justify-between text-[0.6875rem] text-zinc-400">
                     <span>全员实时同步 · 支持 Markdown</span>
                     <button
                       onClick={exportNotes}
@@ -322,7 +322,7 @@ export function ChatDrawer({
                     value={notes}
                     onChange={(e) => onUpdateNotes(e.target.value)}
                     placeholder="# 会议纪要..."
-                    className="flex-1 w-full p-3 rounded-2xl bg-zinc-900/80 border border-white/10 text-xs font-mono text-zinc-200 leading-relaxed resize-none focus:outline-none focus:border-orange-500/50"
+                    className="flex-1 w-full p-3 rounded-2xl bg-zinc-900/80 border border-white/10 text-xs font-mono text-zinc-200 leading-relaxed resize-none focus:outline-none focus:border-indigo-500/50"
                   />
                 </div>
               )}
@@ -360,7 +360,7 @@ function MessageBody({ text }: { text: string }) {
   if (text.startsWith('```') && text.endsWith('```') && text.length > 6) {
     const code = text.slice(3, -3).replace(/^[a-z]+\n/, '');
     return (
-      <pre className="p-2 rounded-lg bg-black/50 font-mono text-[11px] overflow-x-auto text-emerald-300">
+      <pre className="p-2 rounded-lg bg-black/50 font-mono text-[0.6875rem] overflow-x-auto text-emerald-300">
         {code}
       </pre>
     );

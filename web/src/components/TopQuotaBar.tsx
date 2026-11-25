@@ -79,8 +79,8 @@ export function TopQuotaBar({
   const barColor = quota.blocked
     ? 'from-rose-500 to-red-500'
     : quota.warning
-    ? 'from-amber-400 to-orange-500'
-    : 'from-emerald-400 to-cyan-400';
+    ? 'from-amber-400 to-indigo-500'
+    : 'from-emerald-400 to-indigo-600';
 
   return (
     <motion.header
@@ -92,7 +92,7 @@ export function TopQuotaBar({
       {/* Left: Brand & Room Info */}
       <div className="flex items-center gap-3 min-w-0">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center shadow-lg shadow-orange-500/20">
+          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
             <span className="text-xs font-bold text-white tracking-tight">ES</span>
           </div>
           <span className="font-semibold text-sm tracking-tight text-zinc-100 hidden sm:inline">EdgeShare</span>
@@ -133,7 +133,7 @@ export function TopQuotaBar({
           {quota.available ? (
             <>
               <div className="flex flex-col gap-1 min-w-[140px] sm:min-w-[190px]">
-                <div className="flex items-center justify-between text-[11px] leading-none">
+                <div className="flex items-center justify-between text-[0.6875rem] leading-none">
                   <span className="text-zinc-400 flex items-center gap-1">
                     {quota.blocked && <ShieldAlert className="w-3 h-3 text-rose-400" />}
                     {t('freeQuotaLabel')}
@@ -152,7 +152,7 @@ export function TopQuotaBar({
                 </div>
               </div>
               {estHours !== null && (
-                <span className="hidden xl:inline text-[11px] text-zinc-400 font-mono">
+                <span className="hidden xl:inline text-[0.6875rem] text-zinc-400 font-mono">
                   {t('estRemaining')} {estHours > 999 ? '999+' : estHours.toFixed(0)}h
                 </span>
               )}

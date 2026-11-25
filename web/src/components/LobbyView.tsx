@@ -92,7 +92,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
           href="https://dash.cloudflare.com/"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 text-[11px] font-medium text-orange-400 hover:text-orange-300 mt-1.5"
+          className="inline-flex items-center gap-1.5 text-[0.6875rem] font-medium text-indigo-400 hover:text-indigo-300 mt-1.5"
         >
           <span>{t('openCfDash')}</span>
           <ExternalLink className="w-3 h-3" />
@@ -110,7 +110,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
         <button
           type="button"
           onClick={onOpenSettings}
-          className="inline-flex items-center gap-1.5 text-[11px] font-medium text-cyan-400 hover:text-cyan-300 mt-1.5 cursor-pointer"
+          className="inline-flex items-center gap-1.5 text-[0.6875rem] font-medium text-cyan-400 hover:text-cyan-300 mt-1.5 cursor-pointer"
         >
           <KeyRound className="w-3 h-3" />
           <span>{t('configureBtn')}</span>
@@ -124,30 +124,16 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
   ];
 
   return (
-    <div className="relative min-h-screen flex flex-col overflow-x-hidden bg-[#09090b]">
-      {/* Ambient Animated Orbs & Subtle Grid */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="ambient-orb absolute -top-36 -left-24 w-[520px] h-[520px] rounded-full bg-orange-500/14 blur-[130px]" />
-        <div className="ambient-orb absolute -bottom-36 -right-24 w-[560px] h-[560px] rounded-full bg-cyan-500/12 blur-[140px]" />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-          }}
-        />
-      </div>
-
+    <div className="relative min-h-screen flex flex-col overflow-x-hidden ">
       {/* Top Navigation */}
-      <header className="relative z-20 w-full max-w-6xl mx-auto px-5 py-5 flex items-center justify-between">
+      <header className="relative z-20 w-full max-w-7xl mx-auto px-5 py-5 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center shadow-lg shadow-orange-500/25">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/25">
             <MonitorUp className="w-4.5 h-4.5 text-white" />
           </div>
           <div>
             <span className="text-base font-bold tracking-tight text-zinc-100">EdgeShare</span>
-            <p className="text-[11px] text-zinc-400 hidden sm:block">{t('brandSub')}</p>
+            <p className="text-[0.6875rem] text-zinc-400 hidden sm:block">{t('brandSub')}</p>
           </div>
         </div>
 
@@ -168,7 +154,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
       </header>
 
       {/* Main Split Content */}
-      <main className="relative z-10 flex-1 w-full max-w-6xl mx-auto px-5 py-6 lg:py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <main className="relative z-10 flex-1 w-full max-w-7xl mx-auto px-5 py-6 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         {/* Left Column: Hero + Features + Interactive Setup Guide */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -176,16 +162,16 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
           transition={{ type: 'spring', stiffness: 260, damping: 24 }}
           className="lg:col-span-7 space-y-6"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/25 text-xs font-medium text-orange-300">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs font-medium text-indigo-300">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{t('heroBadge')}</span>
           </div>
 
           <div className="space-y-3">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-zinc-100">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-zinc-100">
               {t('heroTitle1')}
               <br />
-              <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-cyan-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
                 {t('heroTitle2')}
               </span>
             </h1>
@@ -195,19 +181,19 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
           {/* 3 Feature Highlights */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-md">
-              <Zap className="w-4 h-4 text-orange-400 mb-2" />
+              <Zap className="w-4 h-4 text-indigo-400 mb-2" />
               <div className="text-xs font-semibold text-zinc-100">{t('feat1Title')}</div>
-              <div className="text-[11px] text-zinc-400 mt-0.5">{t('feat1Desc')}</div>
+              <div className="text-[0.6875rem] text-zinc-400 mt-0.5">{t('feat1Desc')}</div>
             </div>
             <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-md">
               <HardDriveUpload className="w-4 h-4 text-cyan-400 mb-2" />
               <div className="text-xs font-semibold text-zinc-100">{t('feat2Title')}</div>
-              <div className="text-[11px] text-zinc-400 mt-0.5">{t('feat2Desc')}</div>
+              <div className="text-[0.6875rem] text-zinc-400 mt-0.5">{t('feat2Desc')}</div>
             </div>
             <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-md">
               <ShieldCheck className="w-4 h-4 text-emerald-400 mb-2" />
               <div className="text-xs font-semibold text-zinc-100">{t('feat3Title')}</div>
-              <div className="text-[11px] text-zinc-400 mt-0.5">{t('feat3Desc')}</div>
+              <div className="text-[0.6875rem] text-zinc-400 mt-0.5">{t('feat3Desc')}</div>
             </div>
           </div>
 
@@ -216,10 +202,10 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
             <div className="rounded-2xl border border-white/[0.08] bg-zinc-900/60 backdrop-blur-xl overflow-hidden">
               <div className="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between">
                 <div className="flex items-center gap-2 text-xs font-semibold text-zinc-200">
-                  <BookOpen className="w-4 h-4 text-orange-400" />
+                  <BookOpen className="w-4 h-4 text-indigo-400" />
                   <span>{t('guideTitle')}</span>
                 </div>
-                <span className="text-[11px] text-zinc-500">4 Steps</span>
+                <span className="text-[0.6875rem] text-zinc-500">4 Steps</span>
               </div>
               <div className="divide-y divide-white/[0.06]">
                 {guideSteps.map((step, idx) => {
@@ -231,7 +217,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
                         onClick={() => setOpenStep(isOpen ? -1 : idx)}
                         className="w-full px-4 py-2.5 flex items-center justify-between text-left hover:bg-white/[0.03] transition-colors cursor-pointer"
                       >
-                        <span className={`text-xs font-medium ${isOpen ? 'text-orange-300' : 'text-zinc-300'}`}>
+                        <span className={`text-xs font-medium ${isOpen ? 'text-indigo-300' : 'text-zinc-300'}`}>
                           {step.title}
                         </span>
                         <ChevronDown
@@ -267,7 +253,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
           initial={{ opacity: 0, y: 20, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ type: 'spring', stiffness: 280, damping: 24, delay: 0.06 }}
-          className="lg:col-span-5 rounded-3xl border border-white/10 bg-zinc-900/75 backdrop-blur-2xl shadow-2xl p-6 sm:p-7"
+          className="lg:col-span-5 rounded-3xl border border-white/10 bg-zinc-900/75 backdrop-blur-2xl shadow-2xl p-8 sm:p-10"
         >
           {/* Host Status Banner */}
           {status.isHost && (
@@ -278,16 +264,16 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
                   onClick={onOpenSettings}
-                  className="w-full p-3.5 rounded-2xl bg-orange-500/12 hover:bg-orange-500/18 border border-orange-500/30 flex items-center justify-between text-left transition-colors cursor-pointer"
+                  className="w-full p-3.5 rounded-2xl bg-indigo-500/12 hover:bg-indigo-500/18 border border-indigo-500/30 flex items-center justify-between text-left transition-colors cursor-pointer"
                 >
                   <div className="flex items-center gap-2.5">
-                    <KeyRound className="w-4 h-4 text-orange-400 shrink-0" />
+                    <KeyRound className="w-4 h-4 text-indigo-400 shrink-0" />
                     <div>
-                      <div className="text-xs font-semibold text-orange-200">{t('setupRequiredTitle')}</div>
-                      <div className="text-[11px] text-orange-300/70">{t('setupRequiredDesc')}</div>
+                      <div className="text-xs font-semibold text-indigo-200">{t('setupRequiredTitle')}</div>
+                      <div className="text-[0.6875rem] text-indigo-300/70">{t('setupRequiredDesc')}</div>
                     </div>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-orange-400 shrink-0" />
+                  <ArrowRight className="w-4 h-4 text-indigo-400 shrink-0" />
                 </motion.button>
               ) : (
                 <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.07] flex items-center justify-between">
@@ -301,7 +287,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
                       <strong className="text-emerald-400">{status.quota.usedGb.toFixed(1)}</strong> / 1000 GB
                     </span>
                   ) : (
-                    <span className="text-[11px] text-zinc-500">{t('noQuotaToken')}</span>
+                    <span className="text-[0.6875rem] text-zinc-500">{t('noQuotaToken')}</span>
                   )}
                 </div>
               )}
@@ -326,7 +312,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder={t('nicknamePlaceholder')}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950/80 border border-white/10 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-orange-500/60 transition-colors"
+                className="w-full px-3.5 py-3.5 rounded-2xl bg-zinc-950/80 border border-white/10 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-indigo-500/60 transition-colors"
                 autoFocus
               />
             </div>
@@ -339,7 +325,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
                   value={roomId}
                   onChange={(e) => setRoomId(e.target.value)}
                   placeholder={t('roomIdPlaceholder')}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950/80 border border-white/10 text-sm font-mono text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-orange-500/60"
+                  className="w-full px-3.5 py-3.5 rounded-2xl bg-zinc-950/80 border border-white/10 text-sm font-mono text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-indigo-500/60"
                   required
                 />
               </div>
@@ -355,7 +341,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder={status.isHost ? t('passwordPlaceholderHost') : t('passwordPlaceholderGuest')}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-950/80 border border-white/10 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-orange-500/60"
+                className="w-full px-3.5 py-3.5 rounded-2xl bg-zinc-950/80 border border-white/10 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-indigo-500/60"
               />
             </div>
 
@@ -373,9 +359,9 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
                       key={opt.val}
                       type="button"
                       onClick={() => setMaxParticipants(opt.val)}
-                      className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-colors cursor-pointer ${
+                      className={`px-2.5 py-1 rounded-lg text-[0.6875rem] font-medium transition-colors cursor-pointer ${
                         maxParticipants === opt.val
-                          ? 'bg-orange-500/25 border border-orange-500/40 text-orange-300'
+                          ? 'bg-indigo-500/25 border border-indigo-500/40 text-indigo-300'
                           : 'bg-white/[0.04] hover:bg-white/[0.08] text-zinc-400'
                       }`}
                     >
@@ -390,13 +376,13 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
               <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.07] flex items-center justify-between">
                 <div>
                   <div className="text-xs font-medium text-zinc-200">{t('waitingRoomTitle')}</div>
-                  <div className="text-[11px] text-zinc-400">{t('waitingRoomDesc')}</div>
+                  <div className="text-[0.6875rem] text-zinc-400">{t('waitingRoomDesc')}</div>
                 </div>
                 <button
                   type="button"
                   onClick={() => setWaitingRoom(!waitingRoom)}
                   className={`w-10 h-5.5 rounded-full transition-colors p-0.5 cursor-pointer shrink-0 ${
-                    waitingRoom ? 'bg-orange-500' : 'bg-zinc-700'
+                    waitingRoom ? 'bg-indigo-500' : 'bg-zinc-700'
                   }`}
                 >
                   <motion.div
@@ -418,7 +404,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
                   )}
                   <div>
                     <div className="text-xs font-medium text-zinc-200">{t('tunnelTitle')}</div>
-                    <div className="text-[11px] text-zinc-400">
+                    <div className="text-[0.6875rem] text-zinc-400">
                       {status.tunnel.hasBinary ? t('tunnelDescReady') : t('tunnelDescMissing')}
                     </div>
                   </div>
@@ -444,7 +430,7 @@ export function LobbyView({ status, initialRoomId, onJoinRoom, onOpenSettings }:
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-sm font-semibold text-white shadow-xl shadow-orange-500/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 text-sm font-semibold text-white shadow-xl shadow-indigo-500/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
             >
               {loading ? (
                 <>
